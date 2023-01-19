@@ -1,2 +1,5 @@
 rootProject.name = 'room-escape'
+include 'common'
+include 'admin'
+include 'private'
 

@@ -2,9 +2,9 @@ package nextstep.config;
 
 import lombok.RequiredArgsConstructor;
 import nextstep.domain.model.template.enumeration.Role;
+import nextstep.infra.interceptor.LoginArgumentResolver;
+import nextstep.infra.interceptor.LoginInterceptor;
 import nextstep.infra.jwt.JwtTokenProvider;
-import nextstep.interfaces.interceptor.LoginArgumentResolver;
-import nextstep.interfaces.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

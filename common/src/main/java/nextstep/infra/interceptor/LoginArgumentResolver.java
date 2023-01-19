@@ -1,10 +1,9 @@
-package nextstep.interfaces.interceptor;
+package nextstep.infra.interceptor;
 
 import lombok.RequiredArgsConstructor;
 import nextstep.domain.model.template.annotation.Login;
 import nextstep.infra.jwt.JwtTokenProvider;
 import org.springframework.core.MethodParameter;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;

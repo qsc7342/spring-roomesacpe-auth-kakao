@@ -1,36 +1,51 @@
-plugins {
-    id 'org.springframework.boot' version '2.7.2'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
+buildscript {
+    ext {
+        springBootVersion = '2.7.2'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
+    }
 }
 
-group 'nextstep'
-version '1.0-SNAPSHOT'
+subprojects {
+    group 'nextstep'
+    version '1.0-SNAPSHOT'
 
-repositories {
-    mavenCentral()
-}
+    repositories {
+        mavenCentral()
+    }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
 
-    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 
-    implementation 'net.rakugakibox.spring.boot:logback-access-spring-boot-starter:2.7.1'
+        implementation 'io.jsonwebtoken:jjwt:0.9.1'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'io.rest-assured:rest-assured:3.3.0'
+        implementation 'net.rakugakibox.spring.boot:logback-access-spring-boot-starter:2.7.1'
 
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'io.rest-assured:rest-assured:3.3.0'
 
-    runtimeOnly 'com.h2database:h2'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
 
-    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
-    implementation group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0.1'
-    implementation group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.1'
-}
-test {
-    useJUnitPlatform()
+        runtimeOnly 'com.h2database:h2'
+
+        implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+        implementation group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0.1'
+        implementation group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.1'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }
