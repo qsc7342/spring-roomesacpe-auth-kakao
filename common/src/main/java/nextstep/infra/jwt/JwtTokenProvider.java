@@ -46,7 +46,7 @@ public class JwtTokenProvider {
     public MemberDetails getPrincipal(String token) {
         Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
 
-        if (!hasText(claims.getSubject())) {
+        if (!StringUtils.hasText(claims.getSubject())) {
             throw new NoSuchMemberException();
         }
         return objectMapper.convertValue(claims.get(MEMBER_DETAIL), MemberDetails.class);

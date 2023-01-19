@@ -1,4 +1,4 @@
-package nextstep.interfaces.interceptor;
+package nextstep.infra.interceptor;
 
 import lombok.RequiredArgsConstructor;
 import nextstep.domain.model.template.enumeration.Role;
